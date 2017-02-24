@@ -1,0 +1,48 @@
+name = 'project'
+description = Uses the Bootstrap Framework Less source files and must be compiled (not for beginners).
+core = 7.x
+base theme = bootstrap
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/style.css
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'js/affix.js'
+scripts[] = 'js/alert.js'
+scripts[] = 'js/button.js'
+scripts[] = 'js/carousel.js'
+scripts[] = 'js/collapse.js'
+scripts[] = 'js/dropdown.js'
+scripts[] = 'js/modal.js'
+scripts[] = 'js/tooltip.js'
+scripts[] = 'js/popover.js'
+scripts[] = 'js/scrollspy.js'
+scripts[] = 'js/tab.js'
+scripts[] = 'js/transition.js'
+
+; Disable the CDN provider so compiled source files can be used.
+settings[bootstrap_cdn] = ''
