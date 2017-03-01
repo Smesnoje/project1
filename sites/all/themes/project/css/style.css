@@ -6731,7 +6731,7 @@ body {
   background: linear-gradient(#8B83B6, #D2CEE5);
 }
 .navigation {
-  margin-bottom: 20px;
+  margin-top: -20px;
   height: 100px;
   background-color: #5544AC;
 }
