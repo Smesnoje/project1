@@ -6721,4 +6721,8 @@ button.close {
     display: none !important;
   }
 }
+#page-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=style.css.map */
