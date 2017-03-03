@@ -6725,7 +6725,6 @@ button.close {
   background-color: white;
   width: 1200px;
   margin: 0 auto;
-  border: 1px solid rebeccapurple;
 }
 body {
   background: linear-gradient(#8B83B6, #D2CEE5);
@@ -6733,12 +6732,32 @@ body {
 .navigation {
   margin-top: -20px;
   height: 100px;
-  background-color: #5544AC;
+  background: linear-gradient(#41367A, #6A4E94);
 }
-.navigation .section ul {
-  margin-left: 470px;
+.navigation .menu-links ul {
+  width: 750px;
+  margin: auto!important;
+}
+.navigation .menu-links li {
+  width: 90px;
+  margin-left: 25px;
+}
+.navigation .menu-links a {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.navigation .menu-links a:hover {
+  text-decoration: none;
+  color: #9088B9;
+}
+.navigation .section h2 {
+  height: 28px;
+  visibility: hidden;
 }
 .footer {
+  border-top: 2px solid #251B5F;
+  background: linear-gradient(#6A4E94, #837AB2);
   width: 100%;
   height: 150px;
   background-color: greenyellow;

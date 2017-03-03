@@ -74,10 +74,13 @@
 ?>
 <!-- Main menu -->
       <?php if ($main_menu || $secondary_menu): ?>
-        <div class="navigation"><div class="section">
-          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Main menu'))); ?>
+        <div class="navigation">
+          <div class="menu-links">
+          <div class="section">
+              <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Main menu'))); ?>
         </div>
       </div> <!-- /.section, /#navigation -->
+    </div>
       <?php endif; ?>
 
         <div class="page-wrapper">
