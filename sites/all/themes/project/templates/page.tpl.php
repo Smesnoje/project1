@@ -78,6 +78,7 @@
           <div class="menu-links">
           <div class="section">
               <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Main menu'))); ?>
+              <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
         </div>
       </div> <!-- /.section, /#navigation -->
     </div>
@@ -87,6 +88,7 @@
           <div class="main-wrapper">
             <div class="page">
             <div class="main" class="clearfix">
+
 
                   <div class="content" class="column">
                     <div class="section">
