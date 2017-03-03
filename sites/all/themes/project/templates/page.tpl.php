@@ -104,6 +104,9 @@
 
 
   <div class="footer">
+    <div class="copyright">
+      <p>Copyright © 2002-<?php echo date("Y"); ?> <b>MASTON BI</b>. All rights reserved.</p>
+    </div>
       <div class="section">
       <?php print render($page['footer']); ?>
       </div>
