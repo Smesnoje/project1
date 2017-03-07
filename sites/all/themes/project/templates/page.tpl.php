@@ -72,7 +72,6 @@
  * @ingroup themeable
  */
 ?>
-
   <div id="page-wrapper"><div id="page">
 
     <div id="header"><div class="section clearfix">
@@ -91,7 +90,6 @@
     <?php if ($breadcrumb): ?>
       <div id="breadcrumb"><?php print $breadcrumb; ?></div>
     <?php endif; ?>
-
     <?php print $messages; ?>
 
     <div id="main-wrapper"><div id="main" class="clearfix">
@@ -114,6 +112,7 @@
           <?php print render($page['sidebar_first']); ?>
         </div></div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
+
 
       <?php if ($page['sidebar_second']): ?>
         <div id="sidebar-second" class="column sidebar"><div class="section">
