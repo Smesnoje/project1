@@ -1,0 +1,72 @@
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .frontflip, .backflip {
+	width: 320px;
+	height: 432px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.frontflip, .backflip {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.frontflip {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	img{
+		width:320px;
+		height:432px;
+	}
+}
+
+/* back, initially hidden pane */
+.backflip {
+  background:linear-gradient(#41367A,#6A4E94);
+  color:white;
+	transform: rotateY(180deg);
+  .field-name-add-to-cart {
+    .basic-cart-add-to-cart{
+      a:hover{
+        color:#AFA9CE;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.field-name-field-opis-proizvoda {
+  .field-item{
+    padding:10px;
+  }
+}
+.fa-shopping-cart{
+  font-size:50px!important;
+  vertical-align: middle;
+  color: white;
+}
+.slika{
+	img{
+		width:320px;
+		height:432px;
+	}
+}
