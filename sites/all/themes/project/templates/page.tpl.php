@@ -80,7 +80,6 @@
       <div id="navigation"><div class="section-main">
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
           </a>
         <?php endif; ?>
         <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')))); ?>
@@ -123,6 +122,14 @@
     </div></div> <!-- /#main, /#main-wrapper -->
 
     <div id="footer"><div class="section">
+            <div class="footer">
+        <div class="copyright">
+          <p>Copyright © 2002-<?php echo date("Y"); ?> <b>MASTON BI</b>. All rights reserved.</p>
+        </div>
+          <div class="section">
+          <?php print render($page['footer']); ?>
+          </div>
+      </div>
       <?php print render($page['footer']); ?>
     </div></div> <!-- /.section, /#footer -->
 
