@@ -6730,24 +6730,22 @@ button.close {
 body {
   background: linear-gradient(#8B83B6, #D2CEE5);
 }
+.brand {
+  margin: auto;
+  background-color: ;
+  height: 114px;
+  width: 620px;
+  background-image: url('/project1/sites/default/files/mastonbi.png');
+}
 #navigation {
   border-bottom: 2px solid #251B5F;
   margin-top: -20px;
-  height: 100px;
+  height: 220px;
   background: linear-gradient(#41367A, #6A4E94);
   padding-top: 45px;
 }
 #navigation ul {
-  width: 850px;
-  margin: auto;
   text-align: center!important;
-}
-#navigation ul .first {
-  margin-bottom: -15px;
-  width: 80px!important;
-  height: 40px;
-  overflow: hidden;
-  content: url('/project1/sites/all/themes/project/logo.png');
 }
 #navigation li {
   width: 90px;
@@ -6767,6 +6765,7 @@ body {
   visibility: hidden;
 }
 .footer {
+  margin-top: 5px;
   border-top: 2px solid #251B5F;
   color: white;
   background: linear-gradient(#6A4E94, #41367A);

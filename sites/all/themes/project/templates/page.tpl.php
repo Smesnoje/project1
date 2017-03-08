@@ -78,8 +78,9 @@
     </div></div> <!-- /.section, /#header -->
     <?php if ($main_menu || $secondary_menu): ?>
 
-      <div id="navigation">
 
+      <div id="navigation">
+<div class="brand"> </div>
         <div class="section-main">
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
