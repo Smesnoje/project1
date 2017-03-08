@@ -6730,9 +6730,8 @@ body {
   background: linear-gradient(#8B83B6, #D2CEE5);
 }
 .brand {
-  margin: auto;
-  background-color: ;
   height: 114px;
+  margin: auto;
   width: 620px;
   background-image: url('/project1/sites/default/files/mastonbi.png');
 }
@@ -6744,6 +6743,8 @@ body {
   padding-top: 45px;
 }
 #navigation ul {
+  width: 850px;
+  margin: auto;
   text-align: center!important;
 }
 #navigation li {
@@ -6764,7 +6765,6 @@ body {
   visibility: hidden;
 }
 .footer {
-  margin-top: 5px;
   border-top: 2px solid #251B5F;
   color: white;
   background: linear-gradient(#6A4E94, #41367A);
