@@ -77,7 +77,10 @@
     <div id="header"><div class="section clearfix">
     </div></div> <!-- /.section, /#header -->
     <?php if ($main_menu || $secondary_menu): ?>
-      <div id="navigation"><div class="section-main">
+
+      <div id="navigation">
+
+        <div class="section-main">
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
           </a>
