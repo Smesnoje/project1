@@ -6725,6 +6725,7 @@ button.close {
   background-color: white;
   width: 1200px;
   margin: 0 auto;
+  min-height: 1200px;
 }
 body {
   background: linear-gradient(#8B83B6, #D2CEE5);
