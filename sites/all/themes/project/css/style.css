@@ -6726,6 +6726,8 @@ button.close {
   width: 1200px;
   margin: 0 auto;
   min-height: 1200px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 body {
   background: linear-gradient(#8B83B6, #D2CEE5);
@@ -6775,8 +6777,13 @@ body {
   margin: auto;
   width: 250px;
 }
+<<<<<<< HEAD
 #page-title {
   text-align: center;
+=======
+#first-time {
+  display: none;
+>>>>>>> df0ddfdc827acbe1dc9b6fd4608a4491fb482711
 }
 /* entire container, keeps perspective */
 .flip-container {
