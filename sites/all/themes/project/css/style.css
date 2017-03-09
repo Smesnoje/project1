@@ -6777,13 +6777,11 @@ body {
   margin: auto;
   width: 250px;
 }
-<<<<<<< HEAD
 #page-title {
   text-align: center;
-=======
+}
 #first-time {
   display: none;
->>>>>>> df0ddfdc827acbe1dc9b6fd4608a4491fb482711
 }
 /* entire container, keeps perspective */
 .flip-container {
