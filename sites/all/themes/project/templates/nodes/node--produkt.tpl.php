@@ -97,18 +97,21 @@ $kategorija = field_get_items("node",$node,"field_kategorija");
     </div>
   <?php endif; ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print render($content);
+  <div class="content produkt-default"<?php print $content_attributes; ?>>
 
-    ?>
+  <div class="slika col-md-6">
+    <?php  print render ($content['field_produktslika']);?>
+  </div>
+  <div class="body col-md-6">
+    <?php  print render ($content['body']);?>
+  </div>
+  <div class="cart col-md-6">
+    <?php  print render ($content['price']);?>
+    <?php  print render ($content['add_to_cart']);?>
   </div>
 
-  <?php print render($content['links']); ?>
+  </div>
 
-  <?php print render($content['comments']); ?>
+
 
 </div>
