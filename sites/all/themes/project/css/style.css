@@ -6817,6 +6817,10 @@ body {
 .alert-success {
   display: none;
 }
+.mastonbilogo img {
+  margin-left: -200px;
+  margin-top: 20px;
+}
 /* entire container, keeps perspective */
 .flip-container {
   perspective: 1000px;

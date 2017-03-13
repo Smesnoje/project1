@@ -72,6 +72,7 @@
  * @ingroup themeable
  */
 ?>
+
   <div id="page-wrapper"><div id="page">
 
     <div id="header"><div class="section clearfix">
@@ -80,7 +81,14 @@
 
 
       <div id="navigation">
-<div class="brand"> </div>
+
+<div class="brand">
+  <div class="mastonbilogo">
+    <img src="/project1/sites/all/themes/project/mastonbi.png">
+  </div>
+
+ </div>
+
         <div class="section-main">
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
