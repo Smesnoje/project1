@@ -32,7 +32,7 @@
           <div class="basic-cart-total-vat cell"><?php print t('Total VAT'); ?>: <strong><?php print $vat; ?></strong></div>
         </div>
       <?php endif; ?>
-      <div class="basic-cart-cart-checkout-button basic-cart-cart-checkout-button-block row">
+      <div class="basic-cart-cart-Checkout-button basic-cart-cart-Checkout-button-block row">
         <?php print l(t('View cart'), 'cart', array('attributes' => array('class' => array('button')))); ?>
       </div>
     <?php endif; ?>

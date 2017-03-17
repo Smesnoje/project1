@@ -1,6 +1,6 @@
 Intro
 
-Basic cart is a very simple shopping cart / checkout process for Drupal,
+Basic cart is a very simple shopping cart / Checkout process for Drupal,
 that just sends 2 emails after each order. Along with the shopping cart,
 this module also provides a block where you can view your cart's content.
 

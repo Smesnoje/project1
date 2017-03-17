@@ -22,7 +22,7 @@ function basic_cart_permission() {
     ),
     'use basic cart' => array(
       'title' => t('Use basic cart'),
-      'description' => t('Use basic cart (add to cart, remove from cart, checkout).'),
+      'description' => t('Use basic cart (add to cart, remove from cart, Checkout).'),
     ),
   );
 }
@@ -172,7 +172,7 @@ function basic_cart_block_view($delta = '') {
  * This hook is called before the node is saved in the db.
  *
  * Used for adding the right url to the add to cart button, only when a node ID
- * is available. This is the case only when we update products. When we insert new products
+ * is available. This is the case only when we Osveži products. When we insert new products
  * the hook_node_insert function is used instead.
  */
 /*function basic_cart_node_presave($node) {
@@ -215,9 +215,9 @@ function basic_cart_block_view($delta = '') {
     }
     // The node is of type product.
     if (!empty($node_types[$node->type]) &&  in_array($node->type, $node_types)) {
-      // Setting the right add to cart link. Using field_attach_update for this operation as we don't have the node id yet.
+      // Setting the right add to cart link. Using field_attach_Osveži for this operation as we don't have the node id yet.
       $node->add_to_cart[LANGUAGE_NONE][0]['value'] = 'cart/add/' . $node->nid;
-      field_attach_update('node', $node);
+      field_attach_Osveži('node', $node);
     }
   }
 }*/

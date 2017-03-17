@@ -70,7 +70,7 @@ function basic_cart_admin_content_type() {
   );
 
   $form['vat']['basic_cart_vat_state'] = array(
-    '#title' => t('Check if you want to apply the VAT tax on the total amount in the checkout process.'),
+    '#title' => t('Check if you want to apply the VAT tax on the total amount in the Checkout process.'),
     '#type' => 'checkbox',
     '#default_value' => variable_get('basic_cart_vat_state', FALSE),
   );

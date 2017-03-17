@@ -123,7 +123,7 @@ function basic_cart_uninstall() {
 /**
  * Adding Basic Cart new features (price, currency).
  */
-function basic_cart_update_7200() {
+function basic_cart_Osveži_7200() {
   // Setting up the default currency.
   variable_set('basic_cart_currency', BASIC_CART_DEFAULT_CURRENCY);
   // Check to see if the price field already exists.
@@ -173,7 +173,7 @@ function basic_cart_update_7200() {
 /**
  * Updating the price field to number_decimal instead of text. 
  */
-function basic_cart_update_7201() {
+function basic_cart_Osveži_7201() {
   $product_types = basic_cart_product_types();
   if (!empty($product_types)) {
     $backup_products = array();
@@ -235,7 +235,7 @@ function basic_cart_update_7201() {
 /**
  * Adding the latest fields, in case they aren't already there.
  */
-function basic_cart_update_7202() {
+function basic_cart_Osveži_7202() {
   
   // Adding the add to cart and/or price field.
   foreach (basic_cart_get_fields() as $field_name => $field_) {

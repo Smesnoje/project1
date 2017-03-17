@@ -8,18 +8,18 @@
 /**
  * Callback for the admin messages.
  */
-function basic_cart_admin_checkout() {
+function basic_cart_admin_Checkout() {
   $form['messages'] = array(
     '#title' => t('Email messages'),
     '#type' => 'fieldset',
     '#description' => t('Here you can customize the mails sent to the site administrator and customer, after an order is placed.'),
   );
-  
+
   $site_mail = variable_get('site_mail');
   $form['messages']['basic_cart_admin_emails'] = array(
     '#title' => t('Administrator emails'),
     '#type' => 'textarea',
-    '#description' => t('After each placed order, an email with the order details will be sent to all the addresses from the list above. 
+    '#description' => t('After each placed order, an email with the order details will be sent to all the addresses from the list above.
                           Please add one email address per line.'),
     '#default_value' => variable_get('basic_cart_admin_emails', $site_mail),
   );
@@ -34,7 +34,7 @@ function basic_cart_admin_checkout() {
   $form['messages']['basic_cart_admin_message'] = array(
     '#title' => t('Admin email'),
     '#type' => 'textarea',
-    '#description' => t('This email will be sent to the site administrator just after an order is placed. 
+    '#description' => t('This email will be sent to the site administrator just after an order is placed.
       Please see all available tokens below. For listing the products, please use: [basic_cart_order:products]'),
     '#default_value' => variable_get('basic_cart_admin_message'),
   );
@@ -55,7 +55,7 @@ function basic_cart_admin_checkout() {
   $form['messages']['basic_cart_user_message'] = array(
     '#title' => t('User email'),
     '#type' => 'textarea',
-    '#description' => t('This email will be sent to the user just after an order is placed. 
+    '#description' => t('This email will be sent to the user just after an order is placed.
       Please see all available tokens below. For listing the products, please use: [basic_cart_order:products]'),
     '#default_value' => variable_get('basic_cart_user_message'),
   );
@@ -66,7 +66,7 @@ function basic_cart_admin_checkout() {
     '#global_types' => FALSE,
     '#click_insert' => TRUE,
   );
-  
+
   $form['thank_you'] = array(
     '#title' => t('Thank you page'),
     '#type' => 'fieldset',

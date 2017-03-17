@@ -53,17 +53,17 @@ function basic_cart_cart_form() {
     '#prefix' => '<div class="row"><div class="basic-cart-call-to-action cell">',
     '#suffix' => '</div></div>',
   );
-  // Update button.
-  $form['buttons']['update'] = array(
+  // Osveži button.
+  $form['buttons']['Osveži'] = array(
     '#type' => 'submit',
-    '#value' => t('Update'),
+    '#value' => t('Osveži'),
   );
 
   // Checkout button.
   if (module_exists('basic_cart_order')) {
-    $form['buttons']['checkout'] = array(
+    $form['buttons']['Checkout'] = array(
       '#type' => 'submit',
-      '#value' => t('Checkout'),
+      '#value' => t('Na kasu'),
     );
   }
 
@@ -85,11 +85,11 @@ function basic_cart_cart_form_submit($form_id, $form_state) {
     }
   }
 
-  if (module_exists('basic_cart_order') && $form_state['values']['op'] == t('Checkout')) {
-    drupal_goto('checkout');
+  if (module_exists('basic_cart_order') && $form_state['values']['op'] == t('Na kasu')) {
+    drupal_goto('Checkout');
   }
   else {
-    drupal_set_message(t('Shopping cart updated.'));
+    drupal_set_message(t('Shopping cart Osvežid.'));
   }
 }
 
@@ -103,7 +103,7 @@ function basic_cart_add_to_cart($nid = NULL, $quantity = 1) {
   $nid = (int) $nid;
   $quantity = (int) $quantity;
   if ($nid > 0 && $quantity > 0) {
-    // If a node is added more times, just update the quantity.
+    // If a node is added more times, just Osveži the quantity.
     $cart = basic_cart_get_cart();
     if (!empty($cart) && in_array($nid, array_keys($cart))) {
       // Clicked 2 times on add to cart button. Increment quantity.
@@ -125,7 +125,7 @@ function basic_cart_add_to_cart($nid = NULL, $quantity = 1) {
       $_SESSION['basic_cart']['cart'][$nid] = $node;
     }
   }
-  drupal_set_message(t('Shopping cart updated.'));
+  drupal_set_message(t('Shopping cart Osvežid.'));
 
   $redirect = variable_get('basic_cart_redirect_user_after_add_to_cart', FALSE);
   if (empty($redirect)) {
@@ -151,7 +151,7 @@ function basic_cart_remove_from_cart($nid = NULL) {
   if ($nid > 0) {
     unset($_SESSION['basic_cart']['cart'][$nid]);
   }
-  drupal_set_message(t('Shopping cart updated.'));
+  drupal_set_message(t('Shopping cart Osvežid.'));
   drupal_goto('cart');
 }
 

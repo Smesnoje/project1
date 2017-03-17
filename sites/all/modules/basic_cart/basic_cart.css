@@ -62,20 +62,20 @@
   margin: 0 10px 0 0;
 }
 
-.basic-cart-cart-checkout-button {
+.basic-cart-cart-Checkout-button {
   margin: 10px 0;
 }
 
-.basic-cart-cart-checkout-button a.button {
+.basic-cart-cart-Checkout-button a.button {
   float: right;
   margin-right: 0;
 }
 
-.basic-cart-cart-checkout-button-block {
+.basic-cart-cart-Checkout-button-block {
   margin: 10px 0 0 0;
 }
 
-.basic-cart-cart-checkout-button-block a.button {
+.basic-cart-cart-Checkout-button-block a.button {
   margin-bottom: 0;
 }
 
@@ -154,16 +154,16 @@
   text-align: right;
 }
 
-.form-item-basic-cart-checkout-city {
+.form-item-basic-cart-Checkout-city {
   float: left;
   width: 350px;
 }
 
-.form-item-basic-cart-checkout-zipcode {
+.form-item-basic-cart-Checkout-zipcode {
   float: left;
   width: 150px;
 }
 
-.form-item-basic-cart-checkout-message {
+.form-item-basic-cart-Checkout-message {
   clear: both;
 }

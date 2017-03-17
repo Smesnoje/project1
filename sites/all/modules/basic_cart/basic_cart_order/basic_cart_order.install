@@ -39,8 +39,8 @@ function basic_cart_order_schema() {
 /**
  * Removing the required property from total price.
  */
-function basic_cart_order_update_7200() {
+function basic_cart_order_Osveži_7200() {
   $instance_info = field_info_instance('node', 'field_total_price', 'order');
   $instance_info['required'] = FALSE;
-  field_update_instance($instance_info);
+  field_Osveži_instance($instance_info);
 }

@@ -36,7 +36,7 @@ function basic_cart_order_view($node) {
   $name = check_plain($order->title);
   // Email.
   $email = field_get_items('node', $order, 'field_email');
-  $email = isset($email[0]['value']) ? check_plain($email[0]['value']) : '';
+
   // Phone.
   $phone = field_get_items('node', $order, 'field_phone');
   $phone = isset($phone[0]['value']) ? check_plain($phone[0]['value']) : '';
@@ -105,29 +105,29 @@ function basic_cart_order_menu() {
     'type' => MENU_CALLBACK,
   );
 
-  $items['admin/config/basic_cart/settings/checkout'] = array(
+  $items['admin/config/basic_cart/settings/Checkout'] = array(
     'title' => 'Checkout',
-    'description' => 'Basic cart checkout settings.',
+    'description' => 'Basic cart Checkout settings.',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('basic_cart_admin_checkout'),
+    'page arguments' => array('basic_cart_admin_Checkout'),
     'access arguments' => array('administer basic cart'),
     'type' => MENU_LOCAL_TASK,
     'file' => 'basic_cart_order.admin.inc',
     'weight' => 10,
   );
 
-  $items['checkout'] = array(
+  $items['Checkout'] = array(
     'title' => 'Checkout',
     'description' => 'Checkout.',
-    'page callback' => 'basic_cart_order_checkout',
+    'page callback' => 'basic_cart_order_Checkout',
     'access arguments' => array('use basic cart'),
     'type' => MENU_CALLBACK,
   );
 
-  $items['checkout/thank-you'] = array(
+  $items['Checkout/thank-you'] = array(
     'title' => 'Thank you',
     'description' => 'Checkout thank you page.',
-    'page callback' => 'basic_cart_order_checkout_thank_you',
+    'page callback' => 'basic_cart_order_Checkout_thank_you',
     'access arguments' => array('use basic cart'),
     'type' => MENU_CALLBACK,
   );
@@ -166,7 +166,7 @@ function basic_cart_order_theme() {
 /**
  * Checkout form implementation.
  */
-function basic_cart_order_checkout() {
+function basic_cart_order_Checkout() {
   $shopping_cart = basic_cart_get_cart();
   // Price.
   $price = basic_cart_get_total_price();
@@ -186,7 +186,7 @@ function basic_cart_order_checkout() {
   // The flat cart (just the listing part).
   $cart = theme('basic_cart_cart_flat', $options);
 
-  // If the cart is empty, we don't want to show the checkout form.
+  // If the cart is empty, we don't want to show the Checkout form.
   if (empty($shopping_cart)) {
     return $cart;
   }
@@ -264,7 +264,7 @@ function basic_cart_order_send_notifications($order) {
 
     // Sending mail.
     $email = field_get_items('node', $order, 'field_email');
-    $email = $email[0]['value'];
+
     $message = drupal_mail('basic_cart_order', 'user_mail', $email, language_default(), $params);
 
     if ($message['result']) {
@@ -296,7 +296,7 @@ function basic_cart_order_mail($key, &$message, $params) {
 /**
  * Callback for thank you page.
  */
-function basic_cart_order_checkout_thank_you() {
+function basic_cart_order_Checkout_thank_you() {
   $title = t(variable_get('basic_cart_thank_you_title'));
   drupal_set_title($title);
   $message = t(variable_get('basic_cart_thank_you_message'));
@@ -330,7 +330,7 @@ function basic_cart_order_node_insert($node) {
       $node->vat[LANGUAGE_NONE][0]['value'] = $price->vat;
     }
 
-    field_attach_update('node', $node);
+    field_attach_Osveži('node', $node);
 
     $oid = $node->nid;
     foreach ($cart as $n) {
@@ -348,7 +348,7 @@ function basic_cart_order_node_insert($node) {
     if ($emails >= 1) {
       basic_cart_empty_cart();
       // We will switch the view, depending on if admin or not.
-      drupal_goto('checkout/thank-you');
+      drupal_goto('Checkout/thank-you');
     }
     else {
       drupal_set_message(t('Desio se problem prilikom slanja formulara.'), 'error');
