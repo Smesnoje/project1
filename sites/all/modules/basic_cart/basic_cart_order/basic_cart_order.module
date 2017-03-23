@@ -36,7 +36,7 @@ function basic_cart_order_view($node) {
   $name = check_plain($order->title);
   // Email.
   $email = field_get_items('node', $order, 'field_email');
-
+  $email = isset($email[0]['value']) ? check_plain($email[0]['value']) : '';
   // Phone.
   $phone = field_get_items('node', $order, 'field_phone');
   $phone = isset($phone[0]['value']) ? check_plain($phone[0]['value']) : '';
@@ -64,7 +64,7 @@ function basic_cart_order_view($node) {
     $vat = isset($vat[0]['value']) ? check_plain($vat[0]['value']) : '';
     $vat = basic_cart_price_format($vat);
   }
-
+  
   // Hide field data.
   unset($node->content['field_email']);
   unset($node->content['field_phone']);
@@ -75,7 +75,7 @@ function basic_cart_order_view($node) {
   // Page title.
   $title = t('Order ID: @oid', array('@oid' => $oid));
   drupal_set_title($title);
-
+  
   return theme('basic_cart_order_details', array(
     'name' => $name,
     'email' => $email,
@@ -96,7 +96,7 @@ function basic_cart_order_view($node) {
  */
 function basic_cart_order_menu() {
   $items = array();
-
+  
   $items['admin/structure/orders/%node'] = array(
     'title' => 'Basic Cart Orders',
     'page callback' => 'basic_cart_order_view',
@@ -104,34 +104,34 @@ function basic_cart_order_menu() {
     'access arguments' => array('view basic cart orders'),
     'type' => MENU_CALLBACK,
   );
-
-  $items['admin/config/basic_cart/settings/Checkout'] = array(
+  
+  $items['admin/config/basic_cart/settings/checkout'] = array(
     'title' => 'Checkout',
-    'description' => 'Basic cart Checkout settings.',
+    'description' => 'Basic cart checkout settings.',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('basic_cart_admin_Checkout'),
+    'page arguments' => array('basic_cart_admin_checkout'),
     'access arguments' => array('administer basic cart'),
     'type' => MENU_LOCAL_TASK,
     'file' => 'basic_cart_order.admin.inc',
     'weight' => 10,
   );
-
-  $items['Checkout'] = array(
+  
+  $items['checkout'] = array(
     'title' => 'Checkout',
     'description' => 'Checkout.',
-    'page callback' => 'basic_cart_order_Checkout',
+    'page callback' => 'basic_cart_order_checkout',
     'access arguments' => array('use basic cart'),
     'type' => MENU_CALLBACK,
   );
 
-  $items['Checkout/thank-you'] = array(
+  $items['checkout/thank-you'] = array(
     'title' => 'Thank you',
     'description' => 'Checkout thank you page.',
-    'page callback' => 'basic_cart_order_Checkout_thank_you',
+    'page callback' => 'basic_cart_order_checkout_thank_you',
     'access arguments' => array('use basic cart'),
     'type' => MENU_CALLBACK,
   );
-
+  
   return $items;
 }
 
@@ -166,31 +166,31 @@ function basic_cart_order_theme() {
 /**
  * Checkout form implementation.
  */
-function basic_cart_order_Checkout() {
+function basic_cart_order_checkout() {
   $shopping_cart = basic_cart_get_cart();
   // Price.
   $price = basic_cart_get_total_price();
   $total = basic_cart_price_format($price->total);
-
+  
   $options = array(
     'cart' => $shopping_cart,
     'price' => $total,
   );
-
+  
   // Checking the VAT.
   $vat_is_enabled = (int) variable_get('basic_cart_vat_state');
   if (!empty ($vat_is_enabled) && $vat_is_enabled) {
     $options['vat'] = basic_cart_price_format($price->vat);
   }
-
+  
   // The flat cart (just the listing part).
   $cart = theme('basic_cart_cart_flat', $options);
-
-  // If the cart is empty, we don't want to show the Checkout form.
+  
+  // If the cart is empty, we don't want to show the checkout form.
   if (empty($shopping_cart)) {
     return $cart;
   }
-
+  
   // Using the core node/add form for more flexibility.
   module_load_include('inc', 'node', 'node.pages');
   $form = node_add('order');
@@ -198,9 +198,9 @@ function basic_cart_order_Checkout() {
   // Removing the total price field.
   unset($form['field_total_price']);
   unset($form['vat']);
-
+  
   $form['actions']['submit']['#value'] = t('Submit order');
-
+  
   $form = drupal_render($form);
   return $cart . $form;
 }
@@ -212,15 +212,15 @@ function basic_cart_order_Checkout() {
 function basic_cart_order_send_notifications($order) {
   // Admin message.
   $message_html = t(variable_get('basic_cart_admin_message'));
-
+  
   // Token data.
   $data = array('node' => $order);
   $message_html = token_replace($message_html, $data, array('callback' => 'basic_cart_order_tokens_format'));
-
+  
   // Admin mail.
   $params['admin_message'] = $message_html;
   $site_mail = variable_get('site_mail');
-
+  
   $admin_emails = variable_get('basic_cart_admin_emails');
   if (empty ($admin_emails)) {
     // Sending mail to admin.
@@ -238,40 +238,40 @@ function basic_cart_order_send_notifications($order) {
       foreach ($admin_emails as $admin_email) {
         // Sending mail to each admin.
         $message = drupal_mail('basic_cart_order', 'admin_mail', $admin_email, language_default(), $params);
-
+        
         // Verifing that the mail was sent for at least one email address.
         if ($message['result']) {
           $ok = TRUE;
         }
       }
-
+      
       $mails_sent = 0;
       if ($ok) {
         $mails_sent++;
       }
     }
   }
-
+  
   // User email.
   $send_user_mail = variable_get('basic_cart_send_user_message');
   if ($send_user_mail) {
     $message_html = t(variable_get('basic_cart_user_message'));
-
+    
     // Token data.
     $data = array('node' => $order);
     $message_html = token_replace($message_html, $data, array('callback' => 'basic_cart_order_tokens_format'));
     $params['user_message'] = $message_html;
-
+    
     // Sending mail.
     $email = field_get_items('node', $order, 'field_email');
-
+    $email = $email[0]['value'];
     $message = drupal_mail('basic_cart_order', 'user_mail', $email, language_default(), $params);
 
     if ($message['result']) {
       $mails_sent++;
     }
   }
-
+  
   return $mails_sent;
 }
 
@@ -296,7 +296,7 @@ function basic_cart_order_mail($key, &$message, $params) {
 /**
  * Callback for thank you page.
  */
-function basic_cart_order_Checkout_thank_you() {
+function basic_cart_order_checkout_thank_you() {
   $title = t(variable_get('basic_cart_thank_you_title'));
   drupal_set_title($title);
   $message = t(variable_get('basic_cart_thank_you_message'));
@@ -305,11 +305,11 @@ function basic_cart_order_Checkout_thank_you() {
 
 /**
  * Implements hook_node_insert().
- *
+ * 
  * Adding order details and sending emails.
  */
 function basic_cart_order_node_insert($node) {
-
+  
   // The node is of type order.
   if ($node->type == 'order') {
     // Getting the cart.
@@ -330,7 +330,7 @@ function basic_cart_order_node_insert($node) {
       $node->vat[LANGUAGE_NONE][0]['value'] = $price->vat;
     }
 
-    field_attach_Osveži('node', $node);
+    field_attach_update('node', $node);
 
     $oid = $node->nid;
     foreach ($cart as $n) {
@@ -348,20 +348,20 @@ function basic_cart_order_node_insert($node) {
     if ($emails >= 1) {
       basic_cart_empty_cart();
       // We will switch the view, depending on if admin or not.
-      drupal_goto('Checkout/thank-you');
+      drupal_goto('checkout/thank-you');
     }
     else {
-      drupal_set_message(t('Desio se problem prilikom slanja formulara.'), 'error');
+      drupal_set_message(t('There was a problem in submitting your order. Please try again later.'), 'error');
     }
   }
 }
 
 /**
  * Callback function for formatting the order tokens.
- *
+ * 
  * @param array $tokens
  *   The tockens list.
- *
+ * 
  * @return array $tokens.
  *   The formatted list of tokens
  */
@@ -396,7 +396,7 @@ function basic_cart_order_token_info() {
  */
 function basic_cart_order_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
-
+  
   // The first thing that we're going to check for is the type of token - node,
   // user etc...
   if ($type == 'basic_cart_order') {
@@ -408,7 +408,7 @@ function basic_cart_order_tokens($type, $tokens, array $data = array(), array $o
           $new = '';
 
           $cart = basic_cart_get_cart();
-
+          
           // Building the order details.
           $i = 0;
           $products = '';

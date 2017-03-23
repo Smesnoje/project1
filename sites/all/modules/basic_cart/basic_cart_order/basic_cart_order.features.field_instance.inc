@@ -36,7 +36,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Poruka',
+    'label' => 'Message',
     'required' => 0,
     'settings' => array(
       'display_summary' => 0,
@@ -78,7 +78,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_address',
-    'label' => 'Adresa',
+    'label' => 'Address',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -118,7 +118,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_city',
-    'label' => 'Grad',
+    'label' => 'City',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -158,7 +158,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_email',
-    'label' => 'Mail',
+    'label' => 'Email',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -198,7 +198,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_phone',
-    'label' => 'Telefon',
+    'label' => 'Phone',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -238,7 +238,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_total_price',
-    'label' => 'Cena',
+    'label' => 'Total price',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -278,7 +278,7 @@ function basic_cart_order_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_zipcode',
-    'label' => 'Postanski Broj',
+    'label' => 'Zip Code',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
