@@ -12,7 +12,7 @@ function basic_cart_cart() {
   $cart = basic_cart_get_cart();
 
   if (empty($cart)) {
-    return t('Your cart is empty.');
+    return t('Korpa je prazna.');
   }
   return drupal_get_form('basic_cart_cart_form');
 }
@@ -56,14 +56,14 @@ function basic_cart_cart_form() {
   // Update button.
   $form['buttons']['update'] = array(
     '#type' => 'submit',
-    '#value' => t('Update'),
+    '#value' => t('Osveži'),
   );
-  
+
   // Checkout button.
   if (module_exists('basic_cart_order')) {
     $form['buttons']['checkout'] = array(
       '#type' => 'submit',
-      '#value' => t('Checkout'),
+      '#value' => t('Na kasu'),
     );
   }
 
@@ -84,8 +84,8 @@ function basic_cart_cart_form_submit($form_id, $form_state) {
       unset($_SESSION['basic_cart']['cart'][$nid]);
     }
   }
-  
-  if (module_exists('basic_cart_order') && $form_state['values']['op'] == t('Checkout')) {
+
+  if (module_exists('basic_cart_order') && $form_state['values']['op'] == t('Na kasu')) {
     drupal_goto('checkout');
   }
   else {
@@ -120,13 +120,13 @@ function basic_cart_add_to_cart($nid = NULL, $quantity = 1) {
       $unit_price = field_get_items('node', $node, 'price');
       $unit_price = isset($unit_price[0]['value']) ? check_plain(strip_tags($unit_price[0]['value'])) : 0;
       $node->basic_cart_unit_price = $unit_price;
-      
+
       // Storing in session.
       $_SESSION['basic_cart']['cart'][$nid] = $node;
     }
   }
   drupal_set_message(t('Shopping cart updated.'));
-  
+
   $redirect = variable_get('basic_cart_redirect_user_after_add_to_cart', FALSE);
   if (empty($redirect)) {
     drupal_goto('cart');
@@ -180,7 +180,7 @@ function basic_cart_get_cart($nid = NULL) {
  * Returns the final price for the shopping cart.
  *
  * @return mixed $total_price
- *   The total price for the shopping cart. 
+ *   The total price for the shopping cart.
  */
 function basic_cart_get_total_price() {
   // Building the return array.
@@ -193,16 +193,16 @@ function basic_cart_get_total_price() {
   if (empty($cart)) {
     return (object) $return;
   }
-  
+
   $total_price = 0;
   foreach ($cart as $nid => $node) {
     if (isset($node->basic_cart_quantity) && isset($node->basic_cart_unit_price)) {
       $total_price += $node->basic_cart_quantity * $node->basic_cart_unit_price;
     }
   }
-  
+
   $return['price'] = $total_price;
-  
+
   // Checking whether to apply the VAT or not.
   $vat_is_enabled = (int) variable_get('basic_cart_vat_state');
   if (!empty ($vat_is_enabled) && $vat_is_enabled) {
@@ -212,7 +212,7 @@ function basic_cart_get_total_price() {
     // Adding VAT and total price to the return array.
     $return['vat'] = $vat_value;
   }
-  
+
   $return['total'] = $total_price;
   return (object) $return;
 }
@@ -240,35 +240,35 @@ function basic_cart_price_format($price) {
     case 0:
       $price = number_format($price, 2, ',', ' ') . ' ' . $currency;
       break;
-    
+
     case 1:
       $price = number_format($price, 2, '.', ' ') . ' ' . $currency;
       break;
-    
+
     case 2:
       $price = number_format($price, 2, '.', ',') . ' ' . $currency;
       break;
-    
+
     case 3:
       $price = number_format($price, 2, ',', '.') . ' ' . $currency;
       break;
-    
+
     case 4:
       $price = $currency . ' ' . number_format($price, 2, ',', ' ');
       break;
-    
+
     case 5:
       $price = $currency . ' ' . number_format($price, 2, '.', ' ');
       break;
-    
+
     case 6:
       $price = $currency . ' ' . number_format($price, 2, '.', ',');
       break;
-    
+
     case 7:
       $price = $currency . ' ' . number_format($price, 2, ',', '.');
       break;
-    
+
     default:
       $price = number_format($price, 2, ',', ' ') . ' ' . $currency;
       break;
@@ -289,7 +289,7 @@ function _basic_cart_price_format() {
     1 => t('1 234.00 @currency', array('@currency' => $currency)),
     2 => t('1,234.00 @currency', array('@currency' => $currency)),
     3 => t('1.234,00 @currency', array('@currency' => $currency)),
-    
+
     4 => t('@currency 1 234,00', array('@currency' => $currency)),
     5 => t('@currency 1 234.00', array('@currency' => $currency)),
     6 => t('@currency 1,234.00', array('@currency' => $currency)),

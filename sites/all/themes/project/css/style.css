@@ -6838,6 +6838,7 @@ body {
 .backflip {
   width: 320px;
   height: 432px;
+  margin-bottom: 35px;
 }
 /* flip speed goes here */
 .flipper {
