@@ -30,7 +30,7 @@ function basic_cart_order_node_info() {
       'base' => 'node_content',
       'description' => t('Orders placed through the Basic cart module.'),
       'has_title' => '1',
-      'title_label' => t('Name'),
+      'title_label' => t('Ime'),
       'help' => '',
     ),
   );

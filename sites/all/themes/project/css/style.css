@@ -6824,6 +6824,12 @@ body {
 #edit-buttons-checkout {
   background-color: #a7a0c8!important;
 }
+.list-inline a:focus {
+  text-decoration: none;
+}
+#page-title {
+  color: #302064;
+}
 /* entire container, keeps perspective */
 .flip-container {
   perspective: 1000px;
@@ -6870,6 +6876,10 @@ body {
   color: white;
   transform: rotateY(180deg);
 }
+.backflip a:hover {
+  color: #AFA9CE;
+  text-decoration: none;
+}
 .backflip .field-name-add-to-cart .basic-cart-add-to-cart a:hover {
   color: #AFA9CE;
   text-decoration: none;
@@ -6882,9 +6892,15 @@ body {
   vertical-align: middle;
   color: white;
 }
+.slika {
+  margin-bottom: 20px;
+}
 .slika img {
   width: 320px;
   height: 432px;
+}
+.produkttitle a:hover {
+  text-decoration: none;
 }
 .slick-arrow i:hover {
   color: #d9ccff;
@@ -6973,6 +6989,7 @@ body {
 #kategorija-slika {
   width: 220px;
   height: 350px;
+  margin-bottom: 20px;
 }
 .crno {
   display: none;
