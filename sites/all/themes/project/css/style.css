@@ -6723,20 +6723,23 @@ button.close {
 }
 #main-wrapper {
   background-color: white;
-  width: 1200px;
   margin: 0 auto;
+  width: 70%;
   min-height: 800px;
-  padding-left: 20px;
-  padding-right: 20px;
+}
+@media only screen and (max-width: 992px) {
+  #main-wrapper {
+    width: 100%;
+  }
+}
+#main-wrapper #main {
+  padding: 0 10%;
 }
 body {
   background: linear-gradient(#8B83B6, #D2CEE5);
 }
 .brand {
   height: 114px;
-  margin: auto;
-  width: 620px;
-  background-image: url('/project1/sites/default/files/mastonbi.png');
 }
 #navigation {
   border-bottom: 2px solid #251B5F;
@@ -6817,9 +6820,20 @@ body {
 .alert-success {
   display: none;
 }
-.mastonbilogo img {
-  margin-left: -360px;
-  margin-top: 20px;
+.brand {
+  display: flex;
+  justify-content: center;
+}
+.maston-text {
+  padding-right: 13%;
+}
+.maston-text img {
+  padding-right: 10%;
+}
+@media only screen and (max-width: 1500px) {
+  .maston-text {
+    display: none;
+  }
 }
 #edit-buttons-checkout {
   background-color: #a7a0c8!important;
@@ -6829,6 +6843,9 @@ body {
 }
 #page-title {
   color: #302064;
+}
+.field-type-text-with-summary {
+  padding-top: 50px;
 }
 /* entire container, keeps perspective */
 .flip-container {
