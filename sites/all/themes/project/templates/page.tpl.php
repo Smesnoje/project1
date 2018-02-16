@@ -82,13 +82,14 @@
 
       <div id="navigation">
 
-<div class="brand">
-  <div class="mastonbilogo">
-    <img src="/project1/sites/all/themes/project/mastonbi.png">
+      <div class="brand">
+  <div class="maston-flower">
+  <img src="/project1/sites/all/themes/project/mastonbi.png">
   </div>
-
- </div>
-
+   <div class="maston-text">
+   <img src="/project1/sites/all/themes/project/image1001.png">
+   </div>
+  </div>
         <div class="section-main">
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">

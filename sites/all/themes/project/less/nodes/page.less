@@ -1,10 +1,14 @@
 #main-wrapper{
   background-color: white;
- width: 1200px;
  margin:0 auto;
+ width: 70%;
  min-height: 800px;
- padding-left: 20px;
- padding-right: 20px;
+  @media only screen and (max-width: 992px){
+   width: 100%;
+ }
+ #main{
+   padding: 0 10%;
+ }
 
 }
 body {
@@ -12,9 +16,6 @@ body {
 }
 .brand {
   height: 114px;
-  margin: auto;
-  width: 620px;
-  background-image: url('/project1/sites/default/files/mastonbi.png');
 }
 #navigation {
     border-bottom: 2px solid #251B5F;
@@ -124,13 +125,22 @@ display: none!important;
 .alert-success{
   display: none;
 }
-.mastonbilogo{
 
-  img{
-        margin-left: -360px;
-        margin-top: 20px;
-  }
+.brand {
+  display: flex;
+  justify-content: center;
 }
+.maston-text{
+  padding-right: 13%;
+  img{
+    padding-right: 10%;
+  }
+  @media only screen and (max-width: 1500px){
+     display: none;
+  }
+
+}
+
 #edit-buttons-checkout{
   background-color: #a7a0c8!important;
 }
@@ -146,4 +156,7 @@ display: none!important;
 }
 #page-title{
   color:#302064;
+}
+.field-type-text-with-summary{
+  padding-top: 50px;
 }
