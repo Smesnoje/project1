@@ -81,7 +81,9 @@
  */
  $kategorija = field_get_items("node",$node,"field_kategorija");
 ?>
+<script type="text/javascript">
 
+</script>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
     <?php

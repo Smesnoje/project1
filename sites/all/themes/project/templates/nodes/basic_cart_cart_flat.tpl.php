@@ -6,7 +6,7 @@
 ?>
 
 <?php if (empty($cart)): ?>
-  <p><?php print t('Vasa korpa je prazna.'); ?></p>
+  <p><?php print t('Vaša korpa je prazna.'); ?></p>
 <?php else: ?>
   <div class="basic-cart-cart basic-cart-grid">
     <?php if(is_array($cart) && count($cart) >= 1): ?>
