@@ -74,6 +74,10 @@
 ?>
 
     <script>
+  var screenWidth = screen.width;
+  if (screenWidth < 700){
+    window.location.replace("cart");
+  }
     $( document ).ready(function() {
         $( "#dialog" ).dialog();
     } );
@@ -112,8 +116,7 @@
     <div id="main-wrapper"><div id="main" class="clearfix">
 
       <div id="content" class="column"><div class="section">
-      <div id="dialog" title="Basic dialog">
-  <p> Proizvod je dodat u korpu.</p>
+      <div id="dialog" title="Želite li da nastavite kupovinu?">
   <a href="kategorije">Nastavi kupovinu</a>
   <a href="checkout">Idi na kasu</a>
 </div>
