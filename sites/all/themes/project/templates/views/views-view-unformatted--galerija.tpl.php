@@ -54,7 +54,7 @@ jQuery(function ($) {
  });
 </script>
 <div class="filters">
-<div class="button-group col-md-6" data-filter-group="kategorija">
+<div class="button-group" data-filter-group="kategorija">
   <button data-filter="">Sve</button>
   <button data-filter=".Haljine">Haljine</button>
   <button data-filter=".Košulje">Košulje</button>

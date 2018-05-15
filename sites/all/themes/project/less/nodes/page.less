@@ -160,3 +160,42 @@ display: none!important;
 .field-type-text-with-summary{
   padding-top: 50px;
 }
+
+@media screen and (max-width: 720px) {
+  #main-menu {
+    li {
+      margin-left: 0px;
+    }
+  }
+}
+
+// UI-zelite li da nastavite kupoviu
+.ui-dialog {
+  background: linear-gradient( #251B5F , #A7A0C8 );
+ 
+ .ui-dialog-titlebar {
+   background: none;
+   border: none;
+   color: white;
+ }
+
+ .ui-dialog-content {
+  display: flex;
+  justify-content: space-evenly;
+   a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50%;
+    border: 1px solid #9088B9;
+    border-radius: 3px;
+    padding: 5px;
+
+     &:hover {
+      text-decoration: none;
+      background: #A7A0C8;
+     }
+   }
+ }
+
+}

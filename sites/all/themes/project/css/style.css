@@ -6847,6 +6847,36 @@ body {
 .field-type-text-with-summary {
   padding-top: 50px;
 }
+@media screen and (max-width: 720px) {
+  #main-menu li {
+    margin-left: 0px;
+  }
+}
+.ui-dialog {
+  background: linear-gradient(#251B5F, #A7A0C8);
+}
+.ui-dialog .ui-dialog-titlebar {
+  background: none;
+  border: none;
+  color: white;
+}
+.ui-dialog .ui-dialog-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ui-dialog .ui-dialog-content a {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 50%;
+  border: 1px solid #9088B9;
+  border-radius: 3px;
+  padding: 5px;
+}
+.ui-dialog .ui-dialog-content a:hover {
+  text-decoration: none;
+  background: #A7A0C8;
+}
 /* entire container, keeps perspective */
 .flip-container {
   perspective: 1000px;
@@ -6914,10 +6944,25 @@ body {
 }
 .slika img {
   width: 320px;
-  height: 432px;
+  height: 430px;
 }
 .produkttitle a:hover {
   text-decoration: none;
+}
+.cart {
+  display: flex;
+}
+.cart .field-name-price {
+  padding: 15px;
+}
+@media screen and (max-width: 992px) {
+  .slika {
+    display: flex;
+    justify-content: center;
+  }
+  .cart {
+    justify-content: center;
+  }
 }
 .slick-arrow i:hover {
   color: #d9ccff;
@@ -6962,8 +7007,10 @@ body {
 }
 .button-group {
   z-index: 100;
-  margin-top: 39px;
-  margin-left: 317px;
+  margin-top: 40px;
+}
+.button-group button {
+  margin-top: 5px;
 }
 .grid {
   text-align: center;
